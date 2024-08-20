@@ -11,7 +11,7 @@ public class OutrosEmprestimosEmAndamentoImpl implements CalculoPonto {
 
     @Override
     public int calcular(Proposta proposta) {
-        return outrosEmprestimosEmAndamento() ? -25 : 0;
+        return outrosEmprestimosEmAndamento() ? -50 : 0;
     }
 
     /** Mock simulando consulta no BACEN **/
