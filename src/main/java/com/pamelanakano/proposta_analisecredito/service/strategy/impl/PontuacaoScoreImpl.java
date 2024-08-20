@@ -18,7 +18,7 @@ public class PontuacaoScoreImpl implements CalculoPonto {
         int score = score();
 
         if (score < 200) {
-            throw new StrategyException(String.format(MensagemContants.PONTUACAO_BAIXA_SERASA, proposta.getUsuario().getNome()));
+            throw new StrategyException(String.format(MensagemContants.SCORE_BAIXO_SERASA, proposta.getUsuario().getNome()));
         } else if (score <= 400) {
             return 150;
         } else if (score <= 600) {

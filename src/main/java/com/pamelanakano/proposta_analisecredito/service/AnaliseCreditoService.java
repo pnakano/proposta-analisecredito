@@ -1,5 +1,6 @@
 package com.pamelanakano.proposta_analisecredito.service;
 
+import com.pamelanakano.proposta_analisecredito.contants.MensagemContants;
 import com.pamelanakano.proposta_analisecredito.domain.Proposta;
 import com.pamelanakano.proposta_analisecredito.exceptions.StrategyException;
 import com.pamelanakano.proposta_analisecredito.service.strategy.CalculoPonto;
@@ -27,8 +28,12 @@ public class AnaliseCreditoService {
 
     public void analisar(Proposta proposta) {
         try {
-            boolean propostaAprovada = calculoPontoList.stream().mapToInt(impl -> impl.calcular(proposta)).sum() > 400;
+            int totalPontos = calculoPontoList.stream().mapToInt(impl -> impl.calcular(proposta)).sum();
+            boolean propostaAprovada = totalPontos > 400;
             proposta.setAprovada(propostaAprovada);
+            if (!propostaAprovada) {
+                proposta.setObservacao(String.format(MensagemContants.PONTUACAO_INSUFICIENTE, proposta.getUsuario().getNome()));
+            }
         } catch (StrategyException e) {
             proposta.setAprovada(false);
             proposta.setObservacao(e.getMessage());
