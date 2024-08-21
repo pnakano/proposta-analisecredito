@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pamelanakano</groupId>
 	<artifactId>proposta-analisecredito</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>proposta-analisecredito</name>
 	<description>Aplicação para realizar a Análise de Crédito</description>
 	<url/>
